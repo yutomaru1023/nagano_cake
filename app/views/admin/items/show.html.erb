@@ -1,2 +1,16 @@
 <h1>商品詳細</h1>
-<p>Find me in app/views/admin/items/show.html.erb</p>
+
+<div><%= image_tag @item.item_image, size:"300x200" %></div>
+<div>商品名</div>
+<div><%= @item.name %></div>
+
+<div>商品説明</div>
+<div><%= @item.introduction %></div>
+
+<div>ジャンル</div>
+<div><%= @item.genre.name %></div>
+
+<div>販売ステータス</div>
+<div><%= @item.is_active %></div>
+
+<%= link_to "編集する",  edit_admin_item_path(@item.id), class:"btn btn-sm btn-success"%>

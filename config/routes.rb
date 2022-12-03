@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   end
   namespace :admin do
    get 'index' => 'items#index'
-   resources :items, only: [:new,:create,:show,:edit]
+   resources :items, only: [:new,:create,:show,:edit,:update]
    resources :genres, only: [:index,:create,:edit,:update]
    resources :customers, only: [:show,:index,:edit]
   end
