@@ -1,0 +1,6 @@
+<p id="notice"></p>
+
+<div><%= image_tag @item.item_image,size:"200x150" %></div>
+<h4><%= @item.name %></h4>
+<div><%= @item.introduction %></div>
+<div><%= (@item.price*1.1).floor %>(税込)</div>

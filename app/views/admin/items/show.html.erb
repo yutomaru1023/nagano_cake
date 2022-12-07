@@ -1,3 +1,4 @@
+<p id="notice"></p>
 <h1>商品詳細</h1>
 
 <div><%= image_tag @item.item_image, size:"300x200" %></div>
@@ -9,6 +10,10 @@
 
 <div>ジャンル</div>
 <div><%= @item.genre.name %></div>
+
+<div>税込価格</div>
+<div>（税抜価格）</div>
+<div><%= (@item.price*1.1).floor %>(<%= @item.price %>)円</div>
 
 <div>販売ステータス</div>
 <div><%= @item.is_active %></div>

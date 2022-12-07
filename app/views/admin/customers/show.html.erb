@@ -20,7 +20,7 @@
     </tr>
     <tr>
       <td>フリガナ</td>
-
+      <td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
     </tr>
     <tr>
       <td>郵便番号</td>
@@ -44,4 +44,4 @@
     </tr>
   </tbody>
 </table>
-
+<%= link_to "編集する", edit_admin_customer_path(@customer.id), class:"btn btn-sm btn-success"%>
