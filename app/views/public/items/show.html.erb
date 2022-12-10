@@ -5,9 +5,9 @@
 <div><%= @item.introduction %></div>
 <div><strong><%= (@item.price*1.1).floor %>(税込)</strong></div>
 
-<%= form_with model: @cart_items, url: admin_items_path do |f| %>
+<%= form_with model: @cart_item, url: public_cart_items_path do |f| %>
 
   <%= f.hidden_field :item_id, :value => @item.id %>
   <%= f.select :amount,*[1..10], {include_blank: '個数選択'} %>
-
+  <button type="submit" class="btn btn-primary">カートに入れる</button>
 <% end %>

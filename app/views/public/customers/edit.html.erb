@@ -34,3 +34,7 @@
  </div>
    <%= f.submit "編集内容を保存", class:"btn btn-success" %>
  <% end %>
+
+ <%= link_to public_costomers_confirm_path(@customer.id) do %>
+  <button type="button" class="btn btn-danger">退会する</button>
+ <% end %>

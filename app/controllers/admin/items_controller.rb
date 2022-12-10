@@ -2,7 +2,6 @@ class Admin::ItemsController < ApplicationController
   def new
     @item =Item.new
     
-    @cart_item = Cart_item.new
   end
 
   def create
@@ -12,7 +11,6 @@ class Admin::ItemsController < ApplicationController
     else
     render :new
     
-    @cart_item = Cart_item.new(cart_item_params)
     end
   end
 
