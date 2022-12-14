@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+
   devise_for :customers,skip:[:passwords],controllers:{
     registrations:"public/registrations",
     sessions:'public/sessions'
@@ -13,11 +14,13 @@ Rails.application.routes.draw do
   namespace :public do
     root :to => 'homes#top'
     get 'about' => 'homes#about'
+
+     get 'costomers/confirm' => 'customers#confirm'
+    patch 'customers/unsubscribe' => 'customers#unsubscribe'
     resources :items, only: [:show,:index]
     resources :customers, only: [:show, :edit, :update]
-    get 'costomers/confirm' => 'customers#confirm'
-    patch 'customers/unsubscribe' => 'customers#unsubscribe'
     resources :cart_items, only: [:create,:index,]
+    resources :orders, only: [:new,:create,:show,:index]
   end
   namespace :admin do
     root :to  => 'homes#top'

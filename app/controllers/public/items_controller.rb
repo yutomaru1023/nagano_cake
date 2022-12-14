@@ -6,9 +6,14 @@ class Public::ItemsController < ApplicationController
     @cart_item = CartItem.new
   end
 
+  def create
+
+  end
+
   def index
     @items = Item.all
   end
+
 
 
 end

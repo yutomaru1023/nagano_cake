@@ -21,8 +21,8 @@ class Public::CustomersController < ApplicationController
   end
 
   def unsubscribe
-    @customer = current_customer
-    @customer.update(is_deleted :true)
+    @customers = current_customer
+    @customers.update(is_deleted :true)
     reset_session
     redirect_to public_root_path
   end
