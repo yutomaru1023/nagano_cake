@@ -1,13 +1,16 @@
 class Public::OrdersController < ApplicationController
   def new
+    
     @order = Order.new
+    @customer = current_customer
   end
 
   def confirm
-    @order = Order.new
-    @order.ship_postal_code = current_customer.postal_code
-    @order.ship_to_address = current_customer.address
-    @order.ship_name = current_customer.first_name + currento_customer.last_name
+    @order = Order.new(order_params)
+    @address = Address.find(params[:order][:address_id])
+    @order.ship_postal_code = @address.postal_code
+    @order.ship_to_address = @address.address
+    @order.ship_name = @address.name
   end
 
   def show

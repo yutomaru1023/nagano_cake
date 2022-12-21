@@ -17,10 +17,12 @@ Rails.application.routes.draw do
 
      get 'costomers/confirm' => 'customers#confirm'
     patch 'customers/unsubscribe' => 'customers#unsubscribe'
-    resources :items, only: [:show,:index]
-    resources :customers, only: [:show, :edit, :update]
-    resources :cart_items, only: [:create,:index,]
-    resources :orders, only: [:new,:create,:show,:index]
+     get'orders/confirm' => 'orders#confirm'
+     resources :items, only: [:show,:index]
+     resources :customers, only: [:show, :edit, :update]
+     delete'cart_items/destroy_all' => 'cart_items#destroy_all'
+     resources :cart_items, only: [:create,:index,:destroy]
+     resources :orders, only: [:new,:create,:show,:index]
   end
   namespace :admin do
     root :to  => 'homes#top'
@@ -30,10 +32,10 @@ Rails.application.routes.draw do
     get 'genres/edit'
   end
   namespace :admin do
-   get 'index' => 'items#index'
-   resources :items, only: [:new,:create,:show,:edit,:update]
-   resources :genres, only: [:index,:create,:edit,:update]
-   resources :customers, only: [:show,:index,:edit,:update,]
+    get 'index' => 'items#index'
+    resources :items, only: [:new,:create,:show,:edit,:update]
+    resources :genres, only: [:index,:create,:edit,:update]
+    resources :customers, only: [:show,:index,:edit,:update,]
 
   end
 
